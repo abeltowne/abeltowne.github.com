@@ -203,7 +203,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-17 07:47:18" itemprop="dateModified" datetime="2020-02-17T07:47:18+08:00">2020-02-17</time>
+                <time title="Modified: 2020-02-17 07:49:58" itemprop="dateModified" datetime="2020-02-17T07:49:58+08:00">2020-02-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,10 +228,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="RXJS"><a href="#RXJS" class="headerlink" title="RXJS"></a>RXJS</h3><p>这篇文章 主要针对看完rxjs文档，想对其做一个整体理解。文档地址<a href="https://cn.rx.js.org/" target="_blank" rel="noopener">rxjs</a><br>做了几个部分帮助大家理解记忆和运用<br>1.概率总览<br>2.关键点理解</p>
+          <h3 id="RXJS"><a href="#RXJS" class="headerlink" title="RXJS"></a>RXJS</h3><p>这篇文章 主要针对看完rxjs文档，想对其做一个整体理解。文档地址<a href="https://cn.rx.js.org/" target="_blank" rel="noopener">rxjs</a><br>做了几个部分帮助大家理解记忆和运用</p>
+<ol>
+<li>概念总览</li>
+<li>关键点理解</li>
+</ol>
 <h3 id="概念总览图"><a href="#概念总览图" class="headerlink" title="概念总览图"></a>概念总览图</h3><p><img src="../source/img/rxjs-t.png" alt="概念关系图"></p>
 <h3 id="关键理解点"><a href="#关键理解点" class="headerlink" title="关键理解点"></a>关键理解点</h3><h4 id="什么是observable？"><a href="#什么是observable？" class="headerlink" title="什么是observable？"></a>什么是observable？</h4><p>简单讲就是多个值的生产者</p>
-<h4 id="observable的生命周期？"><a href="#observable的生命周期？" class="headerlink" title="observable的生命周期？"></a>observable的生命周期？</h4><p>就四个过程，如我图中所示：创建、订阅、执行、清理</p>
+<h4 id="observable的生命周期？"><a href="#observable的生命周期？" class="headerlink" title="observable的生命周期？"></a>observable的生命周期？</h4><p>四个过程，如上图中所示：创建、订阅、执行、清理</p>
 <h4 id="什么是observable订阅？"><a href="#什么是observable订阅？" class="headerlink" title="什么是observable订阅？"></a>什么是observable订阅？</h4><p>是创建的observable的的subscribe方法的执行，他返回一个subscription的对象</p>
 <h4 id="什么是执行？"><a href="#什么是执行？" class="headerlink" title="什么是执行？"></a>什么是执行？</h4><p>执行的动作是subscribe发起的。observable.subscribe(observer){…}.其中…叫做执行；</p>
 <h4 id="什么是观察者？"><a href="#什么是观察者？" class="headerlink" title="什么是观察者？"></a>什么是观察者？</h4><p>数据的消费者，observable.subscribe(observer){…}，其中observer即为观察者</p>
