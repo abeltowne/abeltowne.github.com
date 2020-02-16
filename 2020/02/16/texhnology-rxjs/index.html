@@ -55,7 +55,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/02/16/source/img/rxjs-t.png">
 <meta property="article:published_time" content="2020-02-16T14:13:12.806Z">
-<meta property="article:modified_time" content="2020-02-16T15:21:30.330Z">
+<meta property="article:modified_time" content="2020-02-16T15:31:33.525Z">
 <meta property="article:author" content="Abeltowne">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/16/source/img/rxjs-t.png">
@@ -200,7 +200,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-16 22:13:12 / Modified: 23:21:30" itemprop="dateCreated datePublished" datetime="2020-02-16T22:13:12+08:00">2020-02-16</time>
+              <time title="Created: 2020-02-16 22:13:12 / Modified: 23:31:33" itemprop="dateCreated datePublished" datetime="2020-02-16T22:13:12+08:00">2020-02-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,7 +230,7 @@
 <h3 id="关键理解点"><a href="#关键理解点" class="headerlink" title="关键理解点"></a>关键理解点</h3><h4 id="什么是observable？"><a href="#什么是observable？" class="headerlink" title="什么是observable？"></a>什么是observable？</h4><p>简单讲就是多个值的生产者</p>
 <h4 id="observable的生命周期？"><a href="#observable的生命周期？" class="headerlink" title="observable的生命周期？"></a>observable的生命周期？</h4><p>就四个过程，如我图中所示：创建、订阅、执行、清理</p>
 <h4 id="什么是observable订阅？"><a href="#什么是observable订阅？" class="headerlink" title="什么是observable订阅？"></a>什么是observable订阅？</h4><p>是创建的observable的的subscribe方法的执行，他返回一个subscription的对象</p>
-<h4 id="什么是执行？"><a href="#什么是执行？" class="headerlink" title="什么是执行？"></a>什么是执行？</h4><p>执行的动作是subscribe发起的.observable.subscribe(observer){…}.其中…叫做执行；</p>
+<h4 id="什么是执行？"><a href="#什么是执行？" class="headerlink" title="什么是执行？"></a>什么是执行？</h4><p>执行的动作是subscribe发起的。observable.subscribe(observer){…}.其中…叫做执行；</p>
 <h4 id="什么是观察者？"><a href="#什么是观察者？" class="headerlink" title="什么是观察者？"></a>什么是观察者？</h4><p>数据的消费者，observable.subscribe(observer){…}，其中observer即为观察者</p>
 <h4 id="观察者常见的方法？"><a href="#观察者常见的方法？" class="headerlink" title="观察者常见的方法？"></a>观察者常见的方法？</h4><p>next() 数据流执行；error()和complete()只有一次</p>
 <h4 id="如何订阅清理？"><a href="#如何订阅清理？" class="headerlink" title="如何订阅清理？"></a>如何订阅清理？</h4><p>调用subscription的方法unsubscribe()方法</p>
