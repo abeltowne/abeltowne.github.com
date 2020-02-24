@@ -172,6 +172,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/technology-angular-pipe-unitTest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Abeltowne">
+      <meta itemprop="description" content="不负宝宝，只争朝夕">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abeltowne">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/24/technology-angular-pipe-unitTest/" class="post-title-link" itemprop="url">angular pipe testing</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-24 08:01:01 / Modified: 22:41:33" itemprop="dateCreated datePublished" datetime="2020-02-24T08:01:01+08:00">2020-02-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angular/" itemprop="url" rel="index">
+                    <span itemprop="name">angular</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="angular-document"><a href="#angular-document" class="headerlink" title="angular document"></a>angular document</h3><p>angular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和<br>独立单元测试，有两篇不错的文章可参考。<a href="amadousall.com/angular-pipes-unit-testing-angular-pipes/">独立单元测试</a><br><a href="https://www.amadousall.com/angular-pipes-integrated-unit-testing/" target="_blank" rel="noopener">集成单元测试</a></p>
+<h4 id="什么是集成单元测试，什么是独立单元测试？"><a href="#什么是集成单元测试，什么是独立单元测试？" class="headerlink" title="什么是集成单元测试，什么是独立单元测试？"></a>什么是集成单元测试，什么是独立单元测试？</h4><p>独立单元测试即只测试函数本身，集成单元测试即加入其他相关元素端到端测试</p>
+<h4 id="针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试"><a href="#针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试" class="headerlink" title="针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试"></a>针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试</h4><p>对于无状态的管道来说，可以选择独立单元测试<br>对于输入和输出受到其他变量影响的情况下，选择集成单元测试</p>
+<h4 id="管道的独立单元测试如何去写？"><a href="#管道的独立单元测试如何去写？" class="headerlink" title="管道的独立单元测试如何去写？"></a>管道的独立单元测试如何去写？</h4><h5 id="一、构建执行环境"><a href="#一、构建执行环境" class="headerlink" title="一、构建执行环境"></a>一、构建执行环境</h5><ol>
+<li>管道声明</li>
+<li>创建管道实例</li>
+<li>检查管道是否被实例化<br><img src="../source/img/unitTest-pipe-1.png" alt="执行环境"><h5 id="二、测试用力编写"><a href="#二、测试用力编写" class="headerlink" title="二、测试用力编写"></a>二、测试用力编写</h5></li>
+<li>异常值的输入输出用力测试</li>
+<li>一般值输入输出<br><img src="../source/img/unitTest-pipe-2.png" alt="用力编写"></li>
+</ol>
+<h4 id="管道如何构建集成单元测试？"><a href="#管道如何构建集成单元测试？" class="headerlink" title="管道如何构建集成单元测试？"></a>管道如何构建集成单元测试？</h4><h5 id="一、求平均值的管道"><a href="#一、求平均值的管道" class="headerlink" title="一、求平均值的管道"></a>一、求平均值的管道</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#123; Pipe, PipeTransform &#125; from &#39;@angular&#x2F;core&#39;;</span><br><span class="line"></span><br><span class="line">@Pipe(&#123;</span><br><span class="line">  name: &#39;mean&#39;</span><br><span class="line">&#125;)</span><br><span class="line">export class MeanPipe implements PipeTransform &#123;</span><br><span class="line"></span><br><span class="line">  transform(value: number[]): number &#123;</span><br><span class="line">    if (!Array.isArray(value)) &#123;</span><br><span class="line">      return value;</span><br><span class="line">    &#125;</span><br><span class="line">    if (value.length &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      return undefined;</span><br><span class="line">    &#125;</span><br><span class="line">    const sum &#x3D; value.reduce((n: number, m: number) &#x3D;&gt; n + m, 0);</span><br><span class="line">    return  sum &#x2F; value.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="二、构建测试环境"><a href="#二、构建测试环境" class="headerlink" title="二、构建测试环境"></a>二、构建测试环境</h5><ol>
+<li>TestBed.configureTestingModule 创建模块，类似@NgModule</li>
+<li>集成测试依赖异步变异 beforeEach中执行TestBet.compileComponents 同事回调用async</li>
+<li>宿主组建依赖执行环境，执行环境中包含一些诸如脏检查等的方法 ComponentFixture 封装组建</li>
+<li>fixture是由TestBed.createComponent 创建的</li>
+<li>在fixture中调用DebugElement类的一些方法</li>
+<li>测试fixture 被正确实例化。<br><img src="../source/img/unitTest-pipe-3.png" alt="构建执行环境"></li>
+</ol>
+<h5 id="三、测试用力全部代码"><a href="#三、测试用力全部代码" class="headerlink" title="三、测试用力全部代码"></a>三、测试用力全部代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">import &#123; MeanPipe &#125; from &#39;.&#x2F;mean.pipe&#39;;</span><br><span class="line">import &#123; async, ComponentFixture, TestBed &#125; from &#39;@angular&#x2F;core&#x2F;testing&#39;;</span><br><span class="line">import &#123; Component, DebugElement &#125; from &#39;@angular&#x2F;core&#39;;</span><br><span class="line">import &#123; By &#125; from &#39;@angular&#x2F;platform-browser&#39;;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  template: &#39;&lt;div&gt;&#123;&#123; values | mean &#125;&#125;&lt;&#x2F;div&gt;&#39;</span><br><span class="line">&#125;)</span><br><span class="line">export class MeanPipeHostComponent &#123;</span><br><span class="line">  values: number[];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">describe(&#39;MeanPipe inside a Component&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  beforeEach(async(() &#x3D;&gt; &#123;</span><br><span class="line">    TestBed</span><br><span class="line">      .configureTestingModule(&#123;</span><br><span class="line">        declarations: [MeanPipe, MeanPipeHostComponent]</span><br><span class="line">      &#125;)</span><br><span class="line">      .compileComponents();</span><br><span class="line">  &#125;));</span><br><span class="line"></span><br><span class="line">  let fixture: ComponentFixture&lt;MeanPipeHostComponent&gt;;</span><br><span class="line">  let debugElement: DebugElement;</span><br><span class="line">  let component: MeanPipeHostComponent;</span><br><span class="line"></span><br><span class="line">  beforeEach(() &#x3D;&gt; &#123;</span><br><span class="line">    fixture &#x3D; TestBed.createComponent(MeanPipeHostComponent);</span><br><span class="line">    debugElement &#x3D; fixture.debugElement;</span><br><span class="line">    component &#x3D; fixture.componentInstance;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&#39;should create an instance&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    expect(fixture).toBeTruthy();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&#39;should display 1&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    component.values &#x3D; [1, 1];</span><br><span class="line">    fixture.detectChanges();</span><br><span class="line"></span><br><span class="line">    const div: HTMLDivElement &#x3D; debugElement</span><br><span class="line">      .query(By.css(&#39;div&#39;))</span><br><span class="line">      .nativeElement;</span><br><span class="line"></span><br><span class="line">    expect(div.textContent.trim()).toEqual(&#39;1&#39;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&#39;should display 0&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    component.values &#x3D; [1, -1];</span><br><span class="line">    fixture.detectChanges();</span><br><span class="line"></span><br><span class="line">    const div: HTMLDivElement &#x3D; debugElement</span><br><span class="line">      .query(By.css(&#39;div&#39;))</span><br><span class="line">      .nativeElement;</span><br><span class="line"></span><br><span class="line">    expect(div.textContent.trim()).toEqual(&#39;0&#39;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&#39;should display nothing&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    component.values &#x3D; [];</span><br><span class="line">    fixture.detectChanges();</span><br><span class="line"></span><br><span class="line">    const div: HTMLDivElement &#x3D; debugElement</span><br><span class="line">      .query(By.css(&#39;div&#39;))</span><br><span class="line">      .nativeElement;</span><br><span class="line"></span><br><span class="line">    expect(div.textContent.trim()).toEqual(&#39;&#39;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/texhnology-rxjs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -203,7 +291,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-17 07:49:58" itemprop="dateModified" datetime="2020-02-17T07:49:58+08:00">2020-02-17</time>
+                <time title="Modified: 2020-02-24 07:59:38" itemprop="dateModified" datetime="2020-02-24T07:59:38+08:00">2020-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,10 +330,9 @@
 <h4 id="观察者常见的方法？"><a href="#观察者常见的方法？" class="headerlink" title="观察者常见的方法？"></a>观察者常见的方法？</h4><p>next() 数据流执行；error()和complete()只有一次.</p>
 <h4 id="如何订阅清理？"><a href="#如何订阅清理？" class="headerlink" title="如何订阅清理？"></a>如何订阅清理？</h4><p>调用subscription的方法unsubscribe()方法</p>
 <h4 id="什么是subject？"><a href="#什么是subject？" class="headerlink" title="什么是subject？"></a>什么是subject？</h4><p>一种特殊的observable</p>
-<h4 id="subject与observable有什么区别？"><a href="#subject与observable有什么区别？" class="headerlink" title="subject与observable有什么区别？"></a>subject与observable有什么区别？</h4><p>两个区别：</p>
-<ol>
+<h4 id="subject与observable有什么区别？"><a href="#subject与observable有什么区别？" class="headerlink" title="subject与observable有什么区别？"></a>subject与observable有什么区别？</h4><ol>
 <li>subject是多播的；observable是单播的；</li>
-<li>subject即时数据的生产者也是消费者，observable是数据生产者<h4 id="什么是多播？"><a href="#什么是多播？" class="headerlink" title="什么是多播？"></a>什么是多播？</h4>并不是observable不能被多次订阅，只是订阅的观察者是独立执行的，而subject订阅以后每个next流是共享的，是接收的。<a href="https://www.tangshuang.net/6091.html" target="_blank" rel="noopener">例子</a><h4 id="subject-哪三种变形？"><a href="#subject-哪三种变形？" class="headerlink" title="subject 哪三种变形？"></a>subject 哪三种变形？</h4>behaviorsubject、replaysubject、asyncsubject<h4 id="behaviorsubject特定是什么？"><a href="#behaviorsubject特定是什么？" class="headerlink" title="behaviorsubject特定是什么？"></a>behaviorsubject特定是什么？</h4>next 执行传递 “当前值”，首次next初始化值为0<h4 id="replaysubject-特定是什么？"><a href="#replaysubject-特定是什么？" class="headerlink" title="replaysubject 特定是什么？"></a>replaysubject 特定是什么？</h4>可以根据“数量“，”时间“缓冲多个值，然后next推送<h4 id="asyncsubject特点是什么？"><a href="#asyncsubject特点是什么？" class="headerlink" title="asyncsubject特点是什么？"></a>asyncsubject特点是什么？</h4>observable执行complete()之后，执行next推送；只推送最后一个值<h4 id="Operator是什么"><a href="#Operator是什么" class="headerlink" title="Operator是什么?"></a>Operator是什么?</h4>是一个纯函数，能返回一个新的observable的函数<h4 id="实例操作符和静态操作符有什么区别？"><a href="#实例操作符和静态操作符有什么区别？" class="headerlink" title="实例操作符和静态操作符有什么区别？"></a>实例操作符和静态操作符有什么区别？</h4>实例操作符，是this指代输入的observable，返回一个新的observable；静态observable，输入非observable，返回一个observable。<h4 id="操作符的分类有哪些？"><a href="#操作符的分类有哪些？" class="headerlink" title="操作符的分类有哪些？"></a>操作符的分类有哪些？</h4></li>
+<li>subject即时数据的生产者也是消费者，observable是数据生产<h4 id="什么是多播？"><a href="#什么是多播？" class="headerlink" title="什么是多播？"></a>什么是多播？</h4>并不是observable不能被多次订阅，只是订阅的观察者是独立执行的，而subject订阅以后每个next流是共享的，是接收的。<a href="https://www.tangshuang.net/6091.html" target="_blank" rel="noopener">例子</a><h4 id="subject-哪三种变形？"><a href="#subject-哪三种变形？" class="headerlink" title="subject 哪三种变形？"></a>subject 哪三种变形？</h4>behaviorsubject、replaysubject、asyncsubject<h4 id="behaviorsubject特定是什么？"><a href="#behaviorsubject特定是什么？" class="headerlink" title="behaviorsubject特定是什么？"></a>behaviorsubject特定是什么？</h4>next 执行传递 “当前值”，首次next初始化值为0<h4 id="replaysubject-特定是什么？"><a href="#replaysubject-特定是什么？" class="headerlink" title="replaysubject 特定是什么？"></a>replaysubject 特定是什么？</h4>可以根据“数量“，”时间“缓冲多个值，然后next推送<h4 id="asyncsubject特点是什么？"><a href="#asyncsubject特点是什么？" class="headerlink" title="asyncsubject特点是什么？"></a>asyncsubject特点是什么？</h4>observable执行complete()之后，执行next推送；只推送最后一个值<h4 id="Operator是什么"><a href="#Operator是什么" class="headerlink" title="Operator是什么?"></a>Operator是什么?</h4>是一个纯函数，能返回一个新的observable的函数<h4 id="实例操作符和静态操作符有什么区别？"><a href="#实例操作符和静态操作符有什么区别？" class="headerlink" title="实例操作符和静态操作符有什么区别？"></a>实例操作符和静态操作符有什么区别？</h4>实例操作符，是this指代输入的observable，返回一个新的observable；静态observable，输入非observable，返回一个observable。<h4 id="操作符的分类有哪些？"><a href="#操作符的分类有哪些？" class="headerlink" title="操作符的分类有哪些？"></a>操作符的分类有哪些？</h4></li>
 </ol>
 <ul>
 <li>创建操作符：create，from，interval，of….</li>
@@ -1024,7 +1111,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
