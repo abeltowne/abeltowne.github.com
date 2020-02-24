@@ -55,7 +55,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/02/16/source/img/rxjs-t.png">
 <meta property="article:published_time" content="2020-02-16T14:13:12.806Z">
-<meta property="article:modified_time" content="2020-02-23T23:59:38.622Z">
+<meta property="article:modified_time" content="2020-02-24T15:52:14.247Z">
 <meta property="article:author" content="Abeltowne">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/16/source/img/rxjs-t.png">
@@ -206,7 +206,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-24 07:59:38" itemprop="dateModified" datetime="2020-02-24T07:59:38+08:00">2020-02-24</time>
+                <time title="Modified: 2020-02-24 23:52:14" itemprop="dateModified" datetime="2020-02-24T23:52:14+08:00">2020-02-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,11 +245,9 @@
 <h4 id="观察者常见的方法？"><a href="#观察者常见的方法？" class="headerlink" title="观察者常见的方法？"></a>观察者常见的方法？</h4><p>next() 数据流执行；error()和complete()只有一次.</p>
 <h4 id="如何订阅清理？"><a href="#如何订阅清理？" class="headerlink" title="如何订阅清理？"></a>如何订阅清理？</h4><p>调用subscription的方法unsubscribe()方法</p>
 <h4 id="什么是subject？"><a href="#什么是subject？" class="headerlink" title="什么是subject？"></a>什么是subject？</h4><p>一种特殊的observable</p>
-<h4 id="subject与observable有什么区别？"><a href="#subject与observable有什么区别？" class="headerlink" title="subject与observable有什么区别？"></a>subject与observable有什么区别？</h4><ol>
+<h4 id="subject与observable有什么区别？"><a href="#subject与observable有什么区别？" class="headerlink" title="subject与observable有什么区别？"></a>subject与observable有什么区别？</h4><ul>
 <li>subject是多播的；observable是单播的；</li>
-<li>subject即时数据的生产者也是消费者，observable是数据生产<h4 id="什么是多播？"><a href="#什么是多播？" class="headerlink" title="什么是多播？"></a>什么是多播？</h4>并不是observable不能被多次订阅，只是订阅的观察者是独立执行的，而subject订阅以后每个next流是共享的，是接收的。<a href="https://www.tangshuang.net/6091.html" target="_blank" rel="noopener">例子</a><h4 id="subject-哪三种变形？"><a href="#subject-哪三种变形？" class="headerlink" title="subject 哪三种变形？"></a>subject 哪三种变形？</h4>behaviorsubject、replaysubject、asyncsubject<h4 id="behaviorsubject特定是什么？"><a href="#behaviorsubject特定是什么？" class="headerlink" title="behaviorsubject特定是什么？"></a>behaviorsubject特定是什么？</h4>next 执行传递 “当前值”，首次next初始化值为0<h4 id="replaysubject-特定是什么？"><a href="#replaysubject-特定是什么？" class="headerlink" title="replaysubject 特定是什么？"></a>replaysubject 特定是什么？</h4>可以根据“数量“，”时间“缓冲多个值，然后next推送<h4 id="asyncsubject特点是什么？"><a href="#asyncsubject特点是什么？" class="headerlink" title="asyncsubject特点是什么？"></a>asyncsubject特点是什么？</h4>observable执行complete()之后，执行next推送；只推送最后一个值<h4 id="Operator是什么"><a href="#Operator是什么" class="headerlink" title="Operator是什么?"></a>Operator是什么?</h4>是一个纯函数，能返回一个新的observable的函数<h4 id="实例操作符和静态操作符有什么区别？"><a href="#实例操作符和静态操作符有什么区别？" class="headerlink" title="实例操作符和静态操作符有什么区别？"></a>实例操作符和静态操作符有什么区别？</h4>实例操作符，是this指代输入的observable，返回一个新的observable；静态observable，输入非observable，返回一个observable。<h4 id="操作符的分类有哪些？"><a href="#操作符的分类有哪些？" class="headerlink" title="操作符的分类有哪些？"></a>操作符的分类有哪些？</h4></li>
-</ol>
-<ul>
+<li>subject即时数据的生产者也是消费者，observable是数据生产。<h4 id="什么是多播？"><a href="#什么是多播？" class="headerlink" title="什么是多播？"></a>什么是多播？</h4>并不是observable不能被多次订阅，只是订阅的观察者是独立执行的，而subject订阅以后每个next流是共享的，是接收的。<a href="https://www.tangshuang.net/6091.html" target="_blank" rel="noopener">例子</a><h4 id="subject-哪三种变形？"><a href="#subject-哪三种变形？" class="headerlink" title="subject 哪三种变形？"></a>subject 哪三种变形？</h4>behaviorsubject、replaysubject、asyncsubject<h4 id="behaviorsubject特定是什么？"><a href="#behaviorsubject特定是什么？" class="headerlink" title="behaviorsubject特定是什么？"></a>behaviorsubject特定是什么？</h4>next 执行传递 “当前值”，首次next初始化值为0<h4 id="replaysubject-特定是什么？"><a href="#replaysubject-特定是什么？" class="headerlink" title="replaysubject 特定是什么？"></a>replaysubject 特定是什么？</h4>可以根据“数量“，”时间“缓冲多个值，然后next推送<h4 id="asyncsubject特点是什么？"><a href="#asyncsubject特点是什么？" class="headerlink" title="asyncsubject特点是什么？"></a>asyncsubject特点是什么？</h4>observable执行complete()之后，执行next推送；只推送最后一个值<h4 id="Operator是什么"><a href="#Operator是什么" class="headerlink" title="Operator是什么?"></a>Operator是什么?</h4>是一个纯函数，能返回一个新的observable的函数<h4 id="实例操作符和静态操作符有什么区别？"><a href="#实例操作符和静态操作符有什么区别？" class="headerlink" title="实例操作符和静态操作符有什么区别？"></a>实例操作符和静态操作符有什么区别？</h4>实例操作符，是this指代输入的observable，返回一个新的observable；静态observable，输入非observable，返回一个observable。<h4 id="操作符的分类有哪些？"><a href="#操作符的分类有哪些？" class="headerlink" title="操作符的分类有哪些？"></a>操作符的分类有哪些？</h4></li>
 <li>创建操作符：create，from，interval，of….</li>
 <li>转换操作符：map,groupBy….</li>
 <li>过滤操作符：filter，debounce，take…</li>
