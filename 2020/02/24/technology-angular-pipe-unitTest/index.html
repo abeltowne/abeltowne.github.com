@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="angular documentangular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和独立单元测试，有两篇不错的文章可参考。独立单元测试集成单元测试 什么是集成单元测试，什么是独立单元测试？独立单元测试即只测试函数本身，集成单元测试即加入其他相关元素端到端测试 针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试对于无状态的管道来说，可以选择">
+  <meta name="description" content="angular pipe testingangular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和独立单元测试，有两篇不错的文章可参考。独立单元测试集成单元测试 什么是集成单元测试，什么是独立单元测试？独立单元测试即只测试函数本身，集成单元测试即加入其他相关元素端到端测试 针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试对于无状态的管道来说，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular pipe testing">
 <meta property="og:url" content="http://yoursite.com/2020/02/24/technology-angular-pipe-unitTest/index.html">
 <meta property="og:site_name" content="Abeltowne">
-<meta property="og:description" content="angular documentangular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和独立单元测试，有两篇不错的文章可参考。独立单元测试集成单元测试 什么是集成单元测试，什么是独立单元测试？独立单元测试即只测试函数本身，集成单元测试即加入其他相关元素端到端测试 针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试对于无状态的管道来说，可以选择">
+<meta property="og:description" content="angular pipe testingangular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和独立单元测试，有两篇不错的文章可参考。独立单元测试集成单元测试 什么是集成单元测试，什么是独立单元测试？独立单元测试即只测试函数本身，集成单元测试即加入其他相关元素端到端测试 针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试对于无状态的管道来说，">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/02/24/source/img/unitTest-pipe-1.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/24/source/img/unitTest-pipe-2.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/24/source/img/unitTest-pipe-3.png">
 <meta property="article:published_time" content="2020-02-24T00:01:01.179Z">
-<meta property="article:modified_time" content="2020-02-24T14:41:33.372Z">
+<meta property="article:modified_time" content="2020-02-24T15:46:29.559Z">
 <meta property="article:author" content="Abeltowne">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/24/source/img/unitTest-pipe-1.png">
@@ -202,7 +202,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-24 08:01:01 / Modified: 22:41:33" itemprop="dateCreated datePublished" datetime="2020-02-24T08:01:01+08:00">2020-02-24</time>
+              <time title="Created: 2020-02-24 08:01:01 / Modified: 23:46:29" itemprop="dateCreated datePublished" datetime="2020-02-24T08:01:01+08:00">2020-02-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +227,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="angular-document"><a href="#angular-document" class="headerlink" title="angular document"></a>angular document</h3><p>angular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和<br>独立单元测试，有两篇不错的文章可参考。<a href="amadousall.com/angular-pipes-unit-testing-angular-pipes/">独立单元测试</a><br><a href="https://www.amadousall.com/angular-pipes-integrated-unit-testing/" target="_blank" rel="noopener">集成单元测试</a></p>
+        <h3 id="angular-pipe-testing"><a href="#angular-pipe-testing" class="headerlink" title="angular pipe testing"></a>angular pipe testing</h3><p>angular 2 中管道功普遍使用，针对管道方面的单元测试当前写法各有不一。关于管道的集成单元测试和<br>独立单元测试，有两篇不错的文章可参考。<a href="amadousall.com/angular-pipes-unit-testing-angular-pipes/">独立单元测试</a><br><a href="https://www.amadousall.com/angular-pipes-integrated-unit-testing/" target="_blank" rel="noopener">集成单元测试</a></p>
 <h4 id="什么是集成单元测试，什么是独立单元测试？"><a href="#什么是集成单元测试，什么是独立单元测试？" class="headerlink" title="什么是集成单元测试，什么是独立单元测试？"></a>什么是集成单元测试，什么是独立单元测试？</h4><p>独立单元测试即只测试函数本身，集成单元测试即加入其他相关元素端到端测试</p>
 <h4 id="针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试"><a href="#针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试" class="headerlink" title="针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试"></a>针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试</h4><p>对于无状态的管道来说，可以选择独立单元测试<br>对于输入和输出受到其他变量影响的情况下，选择集成单元测试</p>
 <h4 id="管道的独立单元测试如何去写？"><a href="#管道的独立单元测试如何去写？" class="headerlink" title="管道的独立单元测试如何去写？"></a>管道的独立单元测试如何去写？</h4><h5 id="一、构建执行环境"><a href="#一、构建执行环境" class="headerlink" title="一、构建执行环境"></a>一、构建执行环境</h5><ol>
@@ -324,7 +324,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#angular-document"><span class="nav-number">1.</span> <span class="nav-text">angular document</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是集成单元测试，什么是独立单元测试？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是集成单元测试，什么是独立单元测试？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试"><span class="nav-number">1.2.</span> <span class="nav-text">针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管道的独立单元测试如何去写？"><span class="nav-number">1.3.</span> <span class="nav-text">管道的独立单元测试如何去写？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、构建执行环境"><span class="nav-number">1.3.1.</span> <span class="nav-text">一、构建执行环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、测试用力编写"><span class="nav-number">1.3.2.</span> <span class="nav-text">二、测试用力编写</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管道如何构建集成单元测试？"><span class="nav-number">1.4.</span> <span class="nav-text">管道如何构建集成单元测试？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、求平均值的管道"><span class="nav-number">1.4.1.</span> <span class="nav-text">一、求平均值的管道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、构建测试环境"><span class="nav-number">1.4.2.</span> <span class="nav-text">二、构建测试环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、测试用力全部代码"><span class="nav-number">1.4.3.</span> <span class="nav-text">三、测试用力全部代码</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#angular-pipe-testing"><span class="nav-number">1.</span> <span class="nav-text">angular pipe testing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是集成单元测试，什么是独立单元测试？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是集成单元测试，什么是独立单元测试？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试"><span class="nav-number">1.2.</span> <span class="nav-text">针对管道来说，什么时候用集成单元测试，什么时候用独立单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管道的独立单元测试如何去写？"><span class="nav-number">1.3.</span> <span class="nav-text">管道的独立单元测试如何去写？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、构建执行环境"><span class="nav-number">1.3.1.</span> <span class="nav-text">一、构建执行环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、测试用力编写"><span class="nav-number">1.3.2.</span> <span class="nav-text">二、测试用力编写</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管道如何构建集成单元测试？"><span class="nav-number">1.4.</span> <span class="nav-text">管道如何构建集成单元测试？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、求平均值的管道"><span class="nav-number">1.4.1.</span> <span class="nav-text">一、求平均值的管道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、构建测试环境"><span class="nav-number">1.4.2.</span> <span class="nav-text">二、构建测试环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、测试用力全部代码"><span class="nav-number">1.4.3.</span> <span class="nav-text">三、测试用力全部代码</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
