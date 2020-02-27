@@ -172,6 +172,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/technology-cleancode-abstract/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Abeltowne">
+      <meta itemprop="description" content="不负宝宝，只争朝夕">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Abeltowne">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/26/technology-cleancode-abstract/" class="post-title-link" itemprop="url">cleancode-代码整洁之道</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-26 22:56:05" itemprop="dateCreated datePublished" datetime="2020-02-26T22:56:05+08:00">2020-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-27 00:39:21" itemprop="dateModified" datetime="2020-02-27T00:39:21+08:00">2020-02-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cleancode/" itemprop="url" rel="index">
+                    <span itemprop="name">cleancode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="cleancode代码整洁之道"><a href="#cleancode代码整洁之道" class="headerlink" title="cleancode代码整洁之道"></a>cleancode代码整洁之道</h3><h4 id="cleancode-第六章-对象和数据结构"><a href="#cleancode-第六章-对象和数据结构" class="headerlink" title="cleancode-第六章-对象和数据结构"></a>cleancode-第六章-对象和数据结构</h4><h6 id="数据抽象用途？"><a href="#数据抽象用途？" class="headerlink" title="数据抽象用途？"></a>数据抽象用途？</h6><p>用于将特定的想要的属性或者方法暴露出来，而隐藏不必要的暴露。</p>
+<h6 id="什么是数据和对象的反对称性？"><a href="#什么是数据和对象的反对称性？" class="headerlink" title="什么是数据和对象的反对称性？"></a>什么是数据和对象的反对称性？</h6><p>对于只增加一个数据类型的时候，这种对象就很方面；适合对象编程；<br>对于有可能会改动函数方式的时候，当然是函数过程式编程更为合适；<br>故此作者认为万物皆对象的说法不对。<br>鄙人观点 对象中添加函数场景很少，有的化应该是自己写法写的不是很好导致，应该避免。</p>
+<h6 id="得墨忒耳律"><a href="#得墨忒耳律" class="headerlink" title="得墨忒耳律"></a>得墨忒耳律</h6><p>类不应该调用任何函数返回对象的方法。<br>这一点有时候很难完全做到，比如http.get().subscribe()就是常用的方法。就违背得莫忒耳律<br>换句话说这样做的本质是防止中间链接断掉。但是我们能保证subscribe方法有的化，这样也没有大的问题。反而能避免更多不必要的对象暴露</p>
+<h6 id="混杂模式为什么不建议使用"><a href="#混杂模式为什么不建议使用" class="headerlink" title="混杂模式为什么不建议使用"></a>混杂模式为什么不建议使用</h6><p>这样混用会引起变量的抽象封闭性</p>
+<h6 id="什么是数据传送对象？"><a href="#什么是数据传送对象？" class="headerlink" title="什么是数据传送对象？"></a>什么是数据传送对象？</h6><p>只有公共变量，没有函数的类。<br>这看起来很稳定和干净，一般用于数据库的编写。值得学习。</p>
+<h4 id="cleancode-第十章-类"><a href="#cleancode-第十章-类" class="headerlink" title="cleancode-第十章-类"></a>cleancode-第十章-类</h4><h6 id="如何类的组织？"><a href="#如何类的组织？" class="headerlink" title="如何类的组织？"></a>如何类的组织？</h6><p>Java一般：先公共静态变量，再私有静态变量，再私有实体变量<br>TS 我想也一样，在TS规则里面也有先public 在private再instance变量</p>
+<h6 id="类是否应该短小"><a href="#类是否应该短小" class="headerlink" title="类是否应该短小"></a>类是否应该短小</h6><p>是的，是的，是的。重要的化多次强调。<br>一般来说要求类的单一原则（SRP）<br>对于大型angular工程来说，这也很重要。至少要做的单一功能<br>系统应该类要多而小，权责单一。不要出行巨大的类。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/technology-angular-pipe-unitTest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -291,7 +373,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-24 23:58:52" itemprop="dateModified" datetime="2020-02-24T23:58:52+08:00">2020-02-24</time>
+                <time title="Modified: 2020-02-26 22:54:41" itemprop="dateModified" datetime="2020-02-26T22:54:41+08:00">2020-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -330,10 +412,7 @@
 <h5 id="观察者常见的方法？"><a href="#观察者常见的方法？" class="headerlink" title="观察者常见的方法？"></a>观察者常见的方法？</h5><p>next() 数据流执行；error()和complete()只有一次.</p>
 <h5 id="如何订阅清理？"><a href="#如何订阅清理？" class="headerlink" title="如何订阅清理？"></a>如何订阅清理？</h5><p>调用subscription的方法unsubscribe()方法</p>
 <h5 id="什么是subject？"><a href="#什么是subject？" class="headerlink" title="什么是subject？"></a>什么是subject？</h5><p>一种特殊的observable</p>
-<h5 id="subject与observable有什么区别？"><a href="#subject与observable有什么区别？" class="headerlink" title="subject与observable有什么区别？"></a>subject与observable有什么区别？</h5><ul>
-<li>subject是多播的；observable是单播的。</li>
-<li>subject即时数据的生产者也是消费者，observable是数据生产。</li>
-</ul>
+<h5 id="subject与observable有什么区别？"><a href="#subject与observable有什么区别？" class="headerlink" title="subject与observable有什么区别？"></a>subject与observable有什么区别？</h5><p>subject是多播的；observable是单播的。<br>subject即时数据的生产者也是消费者，observable是数据生产。</p>
 <h5 id="什么是多播？"><a href="#什么是多播？" class="headerlink" title="什么是多播？"></a>什么是多播？</h5><p>并不是observable不能被多次订阅，只是订阅的观察者是独立执行的，而subject订阅以后每个next流是共享的，是接收的。<a href="https://www.tangshuang.net/6091.html" target="_blank" rel="noopener">例子</a></p>
 <h5 id="subject-哪三种变形？"><a href="#subject-哪三种变形？" class="headerlink" title="subject 哪三种变形？"></a>subject 哪三种变形？</h5><p>behaviorsubject、replaysubject、asyncsubject</p>
 <h5 id="behaviorsubject特定是什么？"><a href="#behaviorsubject特定是什么？" class="headerlink" title="behaviorsubject特定是什么？"></a>behaviorsubject特定是什么？</h5><p>next 执行传递 “当前值”，首次next初始化值为0</p>
@@ -1118,14 +1197,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
